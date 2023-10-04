@@ -13,15 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 public class About extends HttpServlet {
 	protected void doGet(HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws ServletException, IOException
 {
-		PrintWriter out = httpResponse.getWriter();
-		out.println("<html>");
-		out.println("<head>");
-		out.println("<title>About Us</title>");
-		out.println("</head>");
-		out.println("<body>");
-		out.println("I am a Java Developer");
-		out.println("</body>");
-		out.println("</html>");
+		String name = httpRequest.getParameter("name");
+		httpRequest.setAttribute("name", "Thanmay");
+		httpRequest.getRequestDispatcher("/WEB-INF/views/Login.jsp").forward(httpRequest, httpResponse);
+		
 }
 }
 	  
