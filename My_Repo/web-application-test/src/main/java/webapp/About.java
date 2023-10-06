@@ -15,9 +15,16 @@ public class About extends HttpServlet {
 {
 		String name = httpRequest.getParameter("name");
 		httpRequest.setAttribute("name", "Thanmay");
+		String password = httpRequest.getParameter("password");
+		httpRequest.setAttribute("password", httpRequest.getParameter("password"));
 		httpRequest.getRequestDispatcher("/WEB-INF/views/Login.jsp").forward(httpRequest, httpResponse);
 		
 }
+	protected void doPost(HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws ServletException, IOException
+	{
+		httpRequest.setAttribute("name", httpRequest.getParameter("name"));
+		httpRequest.getRequestDispatcher("/WEB-INF/views/Welcome.jsp").forward(httpRequest, httpResponse);
+	}
 }
 	  
 	
